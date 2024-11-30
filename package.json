@@ -1,0 +1,30 @@
+{
+  "name": "integrix",
+  "version": "1.0.0",
+  "description": "dixi",
+  "main": "index.js",
+  "scripts": {
+    "test": "index.js"
+  },
+  "author": "Dario Munaò",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "got": "^14.4.2",
+    "jquery": "^3.7.1",
+    "jsdom": "^25.0.1",
+    "mysql2": "^3.11.3",
+    "node-ssh": "^13.2.0",
+    "nodemon": "^3.1.7",
+    "orst-vpn": "^0.1.0",
+    "request": "^2.88.2",
+    "sequelize": "^6.37.4",
+    "vpnc": "^1.4.10"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3"
+  }
+}
