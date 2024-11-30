@@ -1,3 +1,4 @@
+migrations/
 node_modules/
 seeders/
 nodemon.json
