@@ -1,0 +1,45 @@
+[{
+    "name": "Academy",
+    "icon": "school",
+    "href": "#"
+},{
+    "name": "Calendario",
+    "icon": "calendar_month",
+    "href": "#"
+},{
+    "name": "Conteggi",
+    "icon": "calculate",
+    "href": "#"
+},{
+    "name": "Elminacode",
+    "icon": "group",
+    "href": "#"
+},{
+    "name": "Fidelity",
+    "icon": "qr_code_scanner",
+    "href": "#"
+},{
+    "name": "Link utili",
+    "icon": "star",
+    "href": "#"
+},{
+    "name": "Password",
+    "icon": "key_vertical",
+    "href": "#"
+},{
+    "name": "Pratiche",
+    "icon": "contract_edit",
+    "href": "#"
+},{
+    "name": "Statistiche",
+    "icon": "monitoring",
+    "href": "/stats"
+},{
+    "name": "Ticket & Ordini",
+    "icon": "home_repair_service",
+    "href": "#"
+},{
+    "name": "Turni & Ferie",
+    "icon": "work",
+    "href": "/shifts"
+}]
