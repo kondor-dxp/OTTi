@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "integrix",
+    "password": "Data@2024",
+    "database": "integrix",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "integrix",
+    "password": "Data@2024",
+    "database": "integrix",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "integrix",
+    "password": "Data@2024",
+    "database": "integrix",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
