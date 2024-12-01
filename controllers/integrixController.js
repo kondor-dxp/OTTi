@@ -1,6 +1,16 @@
 const functions = require('../db/functions');
 
 const integrixController = {
+    async void(req, res) {
+
+        // VARIABILI COMUNI A TUTTI I CONTROLLER
+        const route = "home"
+        const session = require('../controllers/sessionController');
+
+        // RENDER DELLA PAGINA HTML VUOTA
+        const page = {  }
+        res.status(200).render('template', { page, route, session })
+    },
     async home(req, res) {
 
         // VARIABILI COMUNI A TUTTI I CONTROLLER
