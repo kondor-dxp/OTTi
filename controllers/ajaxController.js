@@ -1,7 +1,7 @@
 const functions = require('../db/functions')
 
 const ajaxController = {
-    async home(req, res) {
+    async call(req, res) {
 
         // VARIABILI COMUNI A TUTTI I CONTROLLER
         const route = "home"
@@ -18,7 +18,24 @@ const ajaxController = {
                     
                     // RESTITUZIONE DEL JSON ELABORATO
                     const status = result ? 200 : 400
-                    res.status(status).json(data)
+                    res.status(status).json(result)
+                } catch (error) {
+
+                    // GESTIONE DEGLI ERRORI DELLA CHIAMATA AJAX
+                    const status = 500
+                    res.status(status).json(error)
+                }
+                break
+            }
+            case "getUserGroups":{
+                const data = req.body
+                try {
+                    const result = await functions.get("User", data)
+                    // console.log(result)
+                    
+                    // RESTITUZIONE DEL JSON ELABORATO
+                    const status = result ? 200 : 400
+                    res.status(status).json(result)
                 } catch (error) {
 
                     // GESTIONE DEGLI ERRORI DELLA CHIAMATA AJAX
