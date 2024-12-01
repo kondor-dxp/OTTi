@@ -14,7 +14,6 @@ function ajax(url, div="", href="", formID) {
     for(let param of params){
         data[param.name] = param.value
     }
-    console.log(data)
     $("#status").text("loading...")
     $.ajax({
         method: "POST",
