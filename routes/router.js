@@ -8,5 +8,7 @@ const integrixController = require('./../controllers/integrixController')
 
 //ROUTE FRONTEND
 router.get('/', integrixController.home)
+router.get('/stats', integrixController.void)
+router.get('/shifts', integrixController.void)
 
 module.exports = router;
