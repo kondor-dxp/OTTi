@@ -6,8 +6,22 @@ const functions = {
     },
     async get(table, params) {
         const Model = require('../models')[table]
-        const result = await Model.findByPk(params.id)
-        console.log(result)
+        let result = ""
+
+        switch (table){
+            case "User":
+                const Group = require('../models')["Group"]
+                const user = await Model.findByPk(params.id, {
+                    include:[Group]
+                })
+                for(let group of user.Groups){
+                    result += "<span class='badge badge-pill badge-info'>" + group.dataValues.name + "</span> "
+                }
+                break
+            default:
+                result = await Model.findByPk(params.id)
+                break
+        }
         return result
     },
     async getAll(table, subTable="", fk="", params="") {
@@ -16,22 +30,26 @@ const functions = {
         let include = ""
         let where = ""
         let order = ""
-
+        let group = ""
         
         if(subTable !== ""){
-            const SubModel = require('../models')[subTable]
+            const Person = require('../models')[subTable[0]]
+            // const Group = require('../models')[subTable[1]]
 
             switch(table){
                 case "User":
                     attributes = {
                         include:[
-                            [Model.sequelize.fn('',Model.sequelize.col(subTable + '.firstname')),'FirstName'],
-                            [Model.sequelize.fn('',Model.sequelize.col(subTable + '.lastname')),'LastName']
+                            [Model.sequelize.col(subTable[0] + '.firstname'),'FirstName'],
+                            [Model.sequelize.col(subTable[0] + '.lastname'),'LastName'],
+                            [Model.sequelize.col(subTable[0] + '.phone'),'Phone'],
+                            // [Model.sequelize.col('Groups.UserGroups.GroupId'),'Group']
                         ]
                     }
                     order = [
-                        ['email', 'ASC'],
+                        ['id', 'ASC'],
                     ]
+                    // group = [table + '.id']
                     break
                 default:
                     break
@@ -39,8 +57,11 @@ const functions = {
 
             include = [
                 {
-                    model: SubModel, attributes:[]
-                }
+                    model: Person, attributes:[]
+                },
+                // {
+                //     model: Group, attributes:[]
+                // }
             ]
         }
 
@@ -54,7 +75,8 @@ const functions = {
             subQuery: false,
             include: include,
             where: where,
-            order: order
+            order: order,
+            group: group
         })
         return result
     },
