@@ -21,7 +21,7 @@ const integrixController = {
         const apps = require("../config/apps")
 
         try {
-            const users = await functions.getAll("User","Person")
+            const users = await functions.getAll("User", ["Person", "Group"])
             
             // RENDER DELLA PAGINA HTML CON I DATI RESTITUITI DAL CONTROLLER
             const status = users ? 200 : 400
