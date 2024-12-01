@@ -8,6 +8,16 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const User = require('./models').User;
+const Group = require('./models').Group;
+
+const { sequelize } = require('./models');
+(
+    async () => {
+        await sequelize.sync({ alert: true });
+    }
+)();
+
 // CONFIGURAZIONE CARTELLA "public" PER I FILE STATICI
 app.use(express.static(path.join(__dirname, 'public')));
 
